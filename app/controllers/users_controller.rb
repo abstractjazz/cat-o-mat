@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-skip_before_action :verified_user, only: [:new, :create]
+skip_before_action :authenticate_user, only: [:new, :create]
     
 def new 
     @user = User.new
@@ -14,8 +14,7 @@ def new
             render 'new'
         end 
     end 
-
-
+    
     def show
        @user = User.find_by(id: params[:id])
     end 

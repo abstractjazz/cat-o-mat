@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ArtOMat</title>
+    <title>Cat-O-Mat</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <script src= "/javascript/index.js" charset="utf-8"></script>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+  
+  
+  <%= link_to 'login', login_path %><br><br>
+  <%= form_tag ({controller: 'session', action: 'destroy', method: 'post'}) do %>
+  <input type=submit value='logout'><br>
+  
+
+  <% end %> 
     <%= yield %>
   </body>
 </html>

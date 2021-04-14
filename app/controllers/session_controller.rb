@@ -1,13 +1,12 @@
 class SessionController < ApplicationController
-    skip_before_action :verified_user, only: [:new, :create]
-
+    skip_before_action :authenticate_user, only: [:new, :create]
 
     def new
         @user = User.new
     end 
 
     def create 
-        if @user = User.find_by(name: params[:user][:name])
+        if @user = User.find_by(username: params[:user][:username])
             session[:user_id] = @user.id
             redirect_to user_path(@user)
         else 
@@ -19,5 +18,4 @@ class SessionController < ApplicationController
         session.delete("user_id")
         redirect_to root_path 
     end 
-
 end 

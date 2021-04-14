@@ -1,0 +1,16 @@
+<%= form_for @cat do |f| %>
+<br><br>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<br><br>
+<%= f.label :cost %>
+<%= f.text_field :cost %>
+<br><br>
+<%= f.submit 'submit' %>
+
+<% end %> 
+
+<div class= "cat-container">
+</div>
+<script src= "/cats.js">
+</script> 

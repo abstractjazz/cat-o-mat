@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
   root 'users#new'
+  
+  get '/login' => 'session#new'
+  post '/login' => 'session#create'
+  post '/logout' => 'session#destroy'
+  post '/cats' => 'cats#create'
+
   resources :users do 
     resources :cats 
   end 
-  resource :cat
+  resources :cats
 end
