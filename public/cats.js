@@ -31,10 +31,6 @@ function fetchCats() {
     document.getElementById('cat_cat_url').value = document.getElementById('cat').src
     });
 
-// function getCat() {
-// const val = document.getElementById('cat_cat_url').value 
-// val = cat.src
-// });
 
 
 
