@@ -5,7 +5,7 @@ class CatsController < ApplicationController
     end
       
     def show
-        
+
         @cat = Cat.find_by(id: params[:id])
       
     end
@@ -16,8 +16,10 @@ class CatsController < ApplicationController
         
       
     def create
-        @cat = Cat.create(cat_params)
-        redirect_to cat_path(@cat)
+        @user = current_user 
+        @cat = @user.cats.build(cat_params)
+        @user.save
+        redirect_to user_cat_path(@user, @cat)
     end
       
     def edit

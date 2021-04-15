@@ -2,5 +2,5 @@
 <h2>Credits: <%= @user.credits %></h2>
 <h4>you currently have <%= @user.cats.count %> cats</h4>
 
-<%= link_to 'make a new cat', new_cat_path %>
+<%= link_to 'make a new cat', new_user_cat_path(@user) %>
 

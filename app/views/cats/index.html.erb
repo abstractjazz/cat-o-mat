@@ -1,0 +1,7 @@
+<% @cats.each do |cat| %>
+
+<%= cat.name %>
+<%= cat.cost %>
+<img id="cat" src= <%= "#{cat.cat_url}" %> width = "200" height = "200"> 
+
+<% end %>
