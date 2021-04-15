@@ -5,10 +5,9 @@ class CatsController < ApplicationController
     end
       
     def show
-        # raise params.inspect
-       
+        
         @cat = Cat.find_by(id: params[:id])
-       
+      
     end
       
     def new
@@ -35,7 +34,7 @@ class CatsController < ApplicationController
         private
         
     def cat_params
-        params.require(:cat).permit(:name, :cost, :id)
+        params.require(:cat).permit(:name, :cost, :id, :cat_url)
     end
 end
 

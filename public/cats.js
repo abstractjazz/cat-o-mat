@@ -17,7 +17,8 @@ function fetchCats() {
     })
   }
   
-  document.addEventListener('click', function() {
+  const element = document.getElementById('btn')
+  element.addEventListener('click', function() {
     const cat = document.getElementById('cat')
     if (cat) {cat.remove();
     fetchCats();
@@ -25,6 +26,15 @@ function fetchCats() {
     fetchCats()
   }
   })
+
+  document.addEventListener('click', function() {
+    document.getElementById('cat_cat_url').value = document.getElementById('cat').src
+    });
+
+// function getCat() {
+// const val = document.getElementById('cat_cat_url').value 
+// val = cat.src
+// });
 
 
 
