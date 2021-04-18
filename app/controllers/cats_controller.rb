@@ -1,13 +1,14 @@
 class CatsController < ApplicationController
     
     def index
-        @cats = Cat.all
+        @cats = Cat.all  
+        
     end
       
     def show
-
-        @cat = Cat.find_by(id: params[:id])
-      
+        @cat = Cat.find(params[:id])
+        @trade = @cat.trades.build(user_id: current_user.id) 
+        @note = @cat.notes.build(user_id: current_user.id)
     end
       
     def new
@@ -18,6 +19,8 @@ class CatsController < ApplicationController
     def create
         @user = current_user 
         @cat = @user.cats.build(cat_params)
+        @cat.creator_id = @user.id
+        @cat.users << current_user
         @user.save
         redirect_to user_cat_path(@user, @cat)
     end
@@ -36,7 +39,7 @@ class CatsController < ApplicationController
         private
         
     def cat_params
-        params.require(:cat).permit(:name, :cost, :id, :cat_url)
+        params.require(:cat).permit(:name, :cost, :id, :cat_url, :creator_id)
     end
 end
 

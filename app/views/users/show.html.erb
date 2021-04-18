@@ -2,5 +2,13 @@
 <h2>Credits: <%= @user.credits %></h2>
 <h4>you currently have <%= @user.cats.count %> cats</h4>
 
+<% @user.cats.each do |cat| %>
+
+<%= cat.name %>
+
+<img id="cat" src= <%= "#{cat.cat_url}" %> width = "200" height = "200">
+
+<% end %>
+
 <%= link_to 'make a new cat', new_user_cat_path(@user) %>
 

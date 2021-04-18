@@ -1,7 +1,16 @@
+<link rel="stylesheet" href="/index_styles.css">
+<h1>All the Kittehs</h1>
+<div class = "cat_container">
+
 <% @cats.each do |cat| %>
+<div class="cat_box">
 
-<%= cat.name %>
-<%= cat.cost %>
+<p>Name: <%= cat.name %> | Cost:<%= cat.cost %><p>
 <img id="cat" src= <%= "#{cat.cat_url}" %> width = "200" height = "200"> 
+<p>Discovered by: <%= cat.users[0].username %></p>
 
+<%= link_to "Add this kitteh to your collection", cat_path(cat) %>
+
+</div>
 <% end %>
+</div>

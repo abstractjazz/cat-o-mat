@@ -4,10 +4,13 @@ Rails.application.routes.draw do
   get '/login' => 'session#new'
   post '/login' => 'session#create'
   post '/logout' => 'session#destroy'
-  post '/cats' => 'cats#create'
-
+  post '/trades', to:'trades#create', as: 'trades' 
+  post '/notes', to:'notes#create', as: 'notes' 
   resources :users do 
-    resources :cats 
+    resources :cats do
+    end 
   end 
-  resources :cats
+  resources :cats do 
+    resources :notes
+  end 
 end

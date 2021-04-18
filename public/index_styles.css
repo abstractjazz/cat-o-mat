@@ -1,0 +1,16 @@
+.cat_container {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-around; 
+
+   
+}
+
+div.cat_box > p,h3 {
+text-align: center;
+
+}
+
+h1 {
+text-align: center;
+}

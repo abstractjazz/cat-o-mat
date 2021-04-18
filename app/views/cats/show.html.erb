@@ -2,4 +2,29 @@
 
 <h3><%= @cat.cost %></h3>
 
-<img id="cat" src= <%= "#{@cat.cat_url}" %> width = "200" height = "200"> 
+
+
+<img id="cat" src= <%= "#{@cat.cat_url}" %> width = "200" height = "200">
+
+
+<h3>Collect this cat</h3>
+<%= form_for @trade do |f| %> 
+<%= f.hidden_field :user_id %>
+ <%= f.hidden_field :cat_id %>  
+<%= f.submit 'Do it meow' %>
+<% end %>  
+
+
+<h3>Kitteh Comments</h3>
+<%= form_for @note do |f| %>
+<%= f.hidden_field :user_id %>
+<%= f.hidden_field :cat_id %> 
+<%= f.text_area :content %>
+<%= f.submit '😽'%>
+<% end %> 
+
+<% @cat.notes.each do |note| %>
+<p><%=note.content%></p>
+<% end %>
+
+
