@@ -24,7 +24,10 @@
 <% end %> 
 
 <% @cat.notes.each do |note| %>
-<p><%=note.content%></p>
+<% if note.content %>
+<strong><p><%=note.user.username%>: </strong><%=note.content%></p>
+<% else %> 
+<% end %>
 <% end %>
 
 

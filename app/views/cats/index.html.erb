@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="/index_styles.css">
+
 <h1>All the Kittehs</h1>
 <div class = "cat_container">
 
@@ -7,10 +8,14 @@
 
 <p>Name: <%= cat.name %> | Cost:<%= cat.cost %><p>
 <img id="cat" src= <%= "#{cat.cat_url}" %> width = "200" height = "200"> 
-<p>Discovered by: <%= cat.users[0].username %></p>
+<p>Discovered by: <%= link_to cat.users[0].username, "/users/#{cat.users[0].id}"  %></p>
 
 <%= link_to "Add this kitteh to your collection", cat_path(cat) %>
-
 </div>
+
 <% end %>
+
+
+
+
 </div>
