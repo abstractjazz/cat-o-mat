@@ -1,20 +1,26 @@
 class CatsController < ApplicationController
     
     def index
-        
         @cats = Cat.all  
         @users = User.all
     end
       
     def show
         @cat = Cat.find(params[:id])
+        @user = User.find_by(id: @cat.creator_id)
         @trade = @cat.trades.build(user_id: current_user.id) 
         @note = @cat.notes.build(user_id: current_user.id)
+        # binding.pry
     end
       
     def new
-        @cat = Cat.new
-    end
+        user = User.find(params[:user_id])
+        if current_user != user 
+        redirect_to user_path(current_user)
+        else
+        @cat = Cat.new 
+        end 
+    end 
         
       
     def create
@@ -22,9 +28,13 @@ class CatsController < ApplicationController
         @cat = @user.cats.build(cat_params)
         @cat.creator_id = @user.id
         @cat.users << current_user
-        @user.save
+       if @cat.save
         redirect_to user_cat_path(@user, @cat)
+        @user.cats << @cat
+       else 
+        render 'new'
     end
+end 
       
     def edit
         @cat = Cat.find_by(id: params[:id])

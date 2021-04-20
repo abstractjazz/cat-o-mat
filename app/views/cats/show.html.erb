@@ -1,18 +1,26 @@
+
+
+<% if current_user.id == @cat.creator_id %>
+<h3>You have this cat</h3>
+<% end %>
+
+
 <h3><%= @cat.name %></h3>
-
 <h3><%= @cat.cost %></h3>
-
-
-
+<h3><%= @cat.creator_id %></h3>
 <img id="cat" src= <%= "#{@cat.cat_url}" %> width = "200" height = "200">
 
+<% if current_user.id != @cat.users[0].id %>
 
 <h3>Collect this cat</h3>
 <%= form_for @trade do |f| %> 
 <%= f.hidden_field :user_id %>
  <%= f.hidden_field :cat_id %>  
 <%= f.submit 'Do it meow' %>
-<% end %>  
+<% end %>
+<% end %>
+
+  
 
 
 <h3>Kitteh Comments</h3>
@@ -26,7 +34,6 @@
 <% @cat.notes.each do |note| %>
 <% if note.content %>
 <strong><p><%=note.user.username%>: </strong><%=note.content%></p>
-<% else %> 
 <% end %>
 <% end %>
 

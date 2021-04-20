@@ -14,6 +14,10 @@ class ApplicationController < ActionController::Base
     end 
 
     def authenticate_user 
-    redirect_to '/' unless logged_in?     
+   
+    if !logged_in? 
+        flash[:notice] = "If you wanna meet the kittehs you must sign up or login."   
+        redirect_to '/'
+    end 
     end
 end

@@ -1,4 +1,25 @@
+<link rel='stylesheet' href='cats/cat_new_styles.css'>
+
+
+<% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
+
+
 <%= form_for @cat do |f| %>
+<% if @cat.errors.any? %>
+<div id="error_explanation"> 
+<p>Please fix these errors before moving on<p>
+
+<ul>
+<% @cat.errors.full_messages.each do |message| %>
+<li><%= message %></li>
+<% end %>
+</ul>
+</div>
+<% end %>
+
+
 <br><br>
 <%= f.label :name %>
 <%= f.text_field :name %>

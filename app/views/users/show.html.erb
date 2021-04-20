@@ -1,7 +1,10 @@
-<%= @user.username %>
-<h2>Credits: <%= @user.credits %></h2>
-<h4>you currently have <%= @user.cats.count %> cats</h4>
 
+<h2>Credits: <%= @user.credits %></h2>
+<% if current_user.id != @user.id %>
+<h4><%=@user.username %> has <%= @user.cats.count %> cats!</h4>
+<% else %>
+<h4> You have <%= @user.cats.count %> cats!</h4>
+<% end %>
 <% @user.cats.each do |cat| %>
 
 <%= cat.name %>
@@ -10,5 +13,9 @@
 
 <% end %>
 
-<%= link_to 'make a new cat', new_user_cat_path(@user) %>
+<% if current_user.id == @user.id %> 
 
+<%= link_to 'make a new cat', new_user_cat_path(@user) %>
+<% else %>
+
+<% end %>

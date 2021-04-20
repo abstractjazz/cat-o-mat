@@ -1,0 +1,4 @@
+div.field_with_errors {
+    border: solid 0.5px red;
+    width: 25vw;
+}

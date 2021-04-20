@@ -6,12 +6,16 @@ class SessionController < ApplicationController
     end 
 
     def create 
-        if @user = User.find_by(username: params[:user][:username])
+        @user = User.find_by(username: params[:username])
+            
+        if @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id
             redirect_to user_path(@user)
         else 
-            render 'new'
+            flash[:notice]= "Can't find that user. Have you signed up?"
+            redirect_to new_user_path
         end 
+
     end
     
     def destroy 
