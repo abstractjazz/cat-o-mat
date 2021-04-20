@@ -1,6 +1,6 @@
 
 
-<% if current_user.id == @cat.creator_id %>
+<% if current_user.cats.include?(@cat) && current_user.id == @cat.creator_id %>
 <h3>You have this cat</h3>
 <% end %>
 
