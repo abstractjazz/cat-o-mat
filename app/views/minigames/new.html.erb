@@ -1,0 +1,12 @@
+<link rel="stylesheet" href="/minigames/new_game_styles.css">
+
+
+<h1>Click the kittehs to get more credits</h1>
+<div class="btn-credit-collect">
+<%=form_for @minigame do |f|%>
+<%=f.hidden_field :user_id %>
+<%=f.submit 'Get me my kitteh credits!'%>
+<% end %>  
+</div>
+
+<script src="/minigames/newgame.js"></script>

@@ -6,6 +6,7 @@ class SessionController < ApplicationController
     end 
 
     def create 
+
         @user = User.find_by(username: params[:username])
             
         if @user && @user.authenticate(params[:password])
@@ -16,10 +17,18 @@ class SessionController < ApplicationController
             redirect_to new_user_path
         end 
 
+        @fb_user = User.find_or_create_by(uid: auth['uid']) do |u|
+        u.username = auth['info']['name']
+        u.email = auth['info']['email']
+        u.image = auth['info']['image'] 
     end
     
     def destroy 
         session.delete("user_id")
         redirect_to root_path 
     end 
+
+    
+
+
 end 
