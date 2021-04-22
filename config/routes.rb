@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'users#new'
   get '/login' => 'session#new'
-  get '/auth/facebook/callback' => 'session#create'
+  get '/auth/facebook/callback', to: 'session#create'
   post '/login' => 'session#create'
   get '/logout' => 'session#destroy'
   post '/logout' => 'session#destroy'
@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/newgame', to:'minigames#new'
   get 'signup', to: 'users#new', as: 'signup'
   post '/minigames', to: 'minigames#create', as: 'minigames'
+  
   resources :users do 
     resources :cats, except: [:index]
   end 
