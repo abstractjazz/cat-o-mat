@@ -18,7 +18,8 @@ function fetchCats() {
     })
   }
 
-  document.addEventListener('click', function() {
+  const btn = document.querySelector('input#btn')
+  btn.addEventListener('click', function() {
     const cat = document.getElementById('cat')
     if (cat) {cat.remove();
     fetchCats();
