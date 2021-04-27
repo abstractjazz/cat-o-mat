@@ -1,6 +1,11 @@
 
+<% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
 
-<% if current_user.cats.include?(@cat) && current_user.id == @cat.creator_id %>
+
+<% if user_has_cat %>
+<%# <% if current_user.cats.include?(@cat) && current_user.id == @cat.creator_id %>
 <h3>You have this cat</h3>
 <% end %>
 
@@ -10,7 +15,7 @@
 <h3><%= @cat.creator_id %></h3>
 <img id="cat" src= <%= "#{@cat.cat_url}" %> width = "200" height = "200">
 
-<% if current_user.id != @cat.users[0].id %>
+<% if !current_user.cats.include?(@cat) %>
 
 <h3>Collect this cat</h3>
 <%= form_for @trade do |f| %> 
@@ -21,17 +26,23 @@
 <% end %>
 
 <h3>Kitteh Comments</h3>
-<%= form_for @note do |f| %>
-<%= f.hidden_field :user_id %>
-<%= f.hidden_field :cat_id %> 
-<%= f.text_area :content %>
-<%= f.submit '😽'%>
-<% end %> 
+<%= render 'notes/form' %>
+
+<% if user_has_cat %>
+
+<%= link_to 'delete this cat', delete_cat_path(@user) %>
+
+<% end %>
 
 <% @cat.notes.each do |note| %>
-<% if note.content %>
-<strong><p><%=note.user.username%>: </strong><%=note.content%></p>
+
+
+<% if note.user && note.content %>
+<% note.content %>
+<strong><p><%=note.user.username%>: </strong><%=note.content%></p> <% if note.user == current_user %>  
+<%= link_to "edit comment", note_path(note) %>
 <% end %>
 <% end %>
+<% end %>  
 
 

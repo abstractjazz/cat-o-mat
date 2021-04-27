@@ -7,4 +7,8 @@ class User < ApplicationRecord
 
     validates :username, presence: true, uniqueness: true
     validates :email, presence: true 
+
+
+    scope :has_no_credits, -> {
+        where("credits < 1") }
 end

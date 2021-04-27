@@ -2,8 +2,8 @@ class UsersController < ApplicationController
 skip_before_action :authenticate_user, only: [:new, :create]
     
     def new 
-    @user = User.new
-    @cat = Cat.new 
+        @user = User.new
+        @cat = Cat.new 
     end 
 
     def create
@@ -16,9 +16,32 @@ skip_before_action :authenticate_user, only: [:new, :create]
         end 
     end 
     
-    def show
-       @user = User.find_by(id: params[:id])
+    def show 
+       if @user = User.find_by(id: params[:id])
+       else 
+        render '_no_user'
+       end 
     end 
+
+    def edit 
+        @user = User.find_by(id: params[:id])
+    end 
+
+    def update 
+        @user = User.find_by(id: params[:id])
+        @user.update(user_params)
+        redirect_to user_path(@user)
+    end 
+
+
+    def destroy
+        @user = User.find(params[:user_id])
+        @user.cats.delete
+        @user.delete
+        redirect_to root_path
+    end 
+
+   
 
     private 
 

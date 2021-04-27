@@ -1,21 +1,29 @@
+<% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
 
+<link rel ="stylesheet" href="/index_styles.css">
 <h2>Credits: <%= @user.credits %></h2>
 <% if current_user.id != @user.id %>
 <h4><%=@user.username %> has <%= @user.cats.count %> cats!</h4>
 <% else %>
 <h4> You have <%= @user.cats.count %> cats!</h4>
 <% end %>
+<div class="cat_container">
 <% @user.cats.each do |cat| %>
-
-<%= cat.name %>
+<div class="cat_box">
+ <%= link_to cat.name, user_cat_path(@user, cat.id) %><br>
 
 <img id="cat" src= <%= "#{cat.cat_url}" %> width = "200" height = "200">
-
+</div>
 <% end %>
 
-<% if current_user.id == @user.id %> 
-
+</div>
+<% if current_user.id == @user.id %>
 <%= link_to 'make a new cat', new_user_cat_path(@user) %>
+<br><br>
+<%= link_to 'change or delete my account', edit_user_path(@user) %>
+
 <% else %>
 
 <% end %>

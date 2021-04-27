@@ -3,42 +3,31 @@
 
 <% if flash[:notice] %>
     <div class="notice"><%= flash[:notice] %></div>
-  <% end %>
+<% end %>
 
-
-<%= form_for @cat do |f| %>
 <% if @cat.errors.any? %>
-<div id="error_explanation"> 
-<p>Please fix these errors before moving on<p>
-
-<ul>
-<% @cat.errors.full_messages.each do |message| %>
-<li><%= message %></li>
+    <div id="error_explanation"> 
+      <p>Please fix these errors before moving on<p>
+      <ul>
+        <% @cat.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
 <% end %>
-</ul>
-</div>
-<% end %>
+<br><br>
 
-
-<br><br>
-<%= f.label :name %>
-<%= f.text_field :name %>
-<br><br>
-<%= f.label :cost %>
-<%= f.text_field :cost %>
-<%= f.hidden_field :cat_url, value:" " %>
-<%= f.hidden_field :creator_id %>
-<br><br>
-<%= f.submit 'submit' %>
 
 <input id="btn" type="button", value= "New Cat">
-
-<% end %> 
-
-<div class= "cat-container">
+<br><br>
+<div class="cat-container">
 </div>
+<br><br>
+
+<%= render 'form' %>
+
+<br>
+
 <script src= "/cats.js">
 </script> 
 
-<script>
-</script>

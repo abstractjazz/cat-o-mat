@@ -1,0 +1,36 @@
+@import url('http://fonts.cdnfonts.com/css/madeleina-sans');
+@import url('http://fonts.cdnfonts.com/css/action-man-shaded');
+
+html > body {
+    margin-left: 0;
+    background: rgb(255, 169, 184);
+}
+
+div.header-nav {
+    position: fixed;
+    top:0px;
+    background: linear-gradient(blue, pink);
+    width: 100vw;
+    height: 4vh;
+    margin-bottom: 10em;
+    padding-left: 2em;
+}
+
+div.header-nav > a.in-out {
+    color: white;
+}
+div.header-nav > a.local-nav {
+    position: relative;
+    left: 70vw;
+    color: white;
+}
+
+h1, h2, h3 {
+    font-family: 'Action Man Shaded', sans-serif;
+    ;                                          
+}
+
+p, a {
+    font-family: 'Madeleina Sans', sans-serif
+}
+
