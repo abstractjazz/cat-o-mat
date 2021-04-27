@@ -4,3 +4,17 @@ input#btn {
     top: 5vw;
     left: 45vw;
 }
+
+div.cat-container {
+    position: relative;
+    left: 38vw;
+    top: 10vh;
+}
+
+form {
+    position: relative;
+    left: 34vw;
+    top: 10vh;
+
+
+}
