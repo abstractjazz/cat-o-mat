@@ -1,7 +1,7 @@
 
 input#btn {
     position: relative;
-    top: 5vw;
+    top: 5vh;
     left: 45vw;
 }
 
@@ -17,3 +17,4 @@ form {
     top: 10vh;
 
 }
+

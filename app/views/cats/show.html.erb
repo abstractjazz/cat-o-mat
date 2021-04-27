@@ -1,9 +1,10 @@
+<link rel="stylesheet" href="cat_show_styles.css">
 
 <% if flash[:notice] %>
     <div class="notice"><%= flash[:notice] %></div>
   <% end %>
 
-
+ 
 <% if user_has_cat %>
 <%# <% if current_user.cats.include?(@cat) && current_user.id == @cat.creator_id %>
 <h3>You have this cat</h3>

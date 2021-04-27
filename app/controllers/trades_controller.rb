@@ -8,7 +8,7 @@ class TradesController < ApplicationController
        cat = Cat.find(params[:trade][:cat_id])
         
             if user.cats.include?(cat) 
-                redirect_to user_path(user)
+            redirect_to user_path(user)
             return flash[:notice]="You already have this kitteh!" 
             else
         

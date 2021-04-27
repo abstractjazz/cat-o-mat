@@ -13,9 +13,11 @@
   <body>
   <div class="header-nav">
   <% if !logged_in? %>
-  <%= link_to 'login', login_path, class: "in-out" %>&nbsp&nbsp&nbsp;
+  <%= link_to ' Already have an account? Login.', login_path, class: "in-out" %>&nbsp&nbsp&nbsp;
   <% end %>
+  <% if logged_in? %>
   <%= link_to 'logout', logout_path, class: "in-out" %>
+  <% end %>
   <% if logged_in? %>
   <%= link_to 'all the cats', cats_path, class: "local-nav" %>&nbsp&nbsp&nbsp;
   <%= link_to  'me and my cats', user_path(current_user), class: "local-nav" %> 

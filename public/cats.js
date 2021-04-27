@@ -14,16 +14,21 @@ function fetchCats() {
       img.height ="200";
       img.id = "cat"
       main.appendChild(img)
-
     })
   }
 
-  const btn = document.querySelector('input#btn')
-  btn.addEventListener('click', function() {
+  const button = document.querySelector('input#btn')
+  button.addEventListener('click', function() {
     const cat = document.getElementById('cat')
+   
     if (cat) {cat.remove();
+     
     fetchCats();
   } else {
     fetchCats()
   }
   })
+
+  document.addEventListener('click', function() {
+    document.getElementById('cat_cat_url').value = document.getElementById('cat').src
+    });
