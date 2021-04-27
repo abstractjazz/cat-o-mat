@@ -1,0 +1,39 @@
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+
+div.login {
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25vh;
+    background-image: linear-gradient(to bottom right,blue,pink);
+    height: 80vh;
+    width: 70vh;
+}
+
+div.form-group {
+    font-family: 'Madeleina Sans', sans-serif;
+    font-size: 1.099em;
+    position: relative;
+    right: 4em;
+}
+
+div.login > a {
+    font-size: 1.099em;
+    position: relative;
+    top: 10em;
+    left: 10em;
+}
+
+input.submit {
+    position: relative;
+    margin-top: 1.3em;
+    left: 11em;
+}
+
+
