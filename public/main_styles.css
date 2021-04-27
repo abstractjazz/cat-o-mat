@@ -13,7 +13,12 @@ div.header-nav {
     width: 100vw;
     height: 4vh;
     margin-bottom: 10em;
-    padding-left: 2em;
+    padding: 0.5em 0em 0em 2em;
+}
+
+img#cat { 
+    border: solid black 3px; 
+    
 }
 
 div.header-nav > a.in-out {
@@ -33,4 +38,5 @@ h1, h2, h3 {
 p, a {
     font-family: 'Madeleina Sans', sans-serif
 }
+
 
