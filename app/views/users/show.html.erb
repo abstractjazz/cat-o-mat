@@ -2,8 +2,8 @@
     <div class="notice"><%= flash[:notice] %></div>
   <% end %>
 
-<link rel ="stylesheet" href="/index_styles.css">
-<h2>Credits: <%= @user.credits %></h2>
+<link rel ="stylesheet" href="/cat_show_styles.css">
+<h2>Credits Remaining: <%= @user.credits %></h2>
 <% if current_user.id != @user.id %>
 <h4><%=@user.username %> has <%= @user.cats.count %> cats!</h4>
 <% else %>
@@ -20,9 +20,8 @@
 
 </div>
 <% if current_user.id == @user.id %>
-<%= link_to 'make a new cat', new_user_cat_path(@user) %>
-<br><br>
-<%= link_to 'change or delete my account', edit_user_path(@user) %>
+<%= link_to 'make a new cat', new_user_cat_path(@user), id: "new-cat" %>
+<%= link_to 'change or delete my account', edit_user_path(@user), id: "user-change" %>
 
 <% else %>
 

@@ -10,13 +10,27 @@
     
     }
     
-    h1 {
+    h2 {
     text-align: center;
     margin-top: 60px;
     }
  
 
+    h4 {
+        text-align: center;
+    }
+
    div.cat_box > a {
        position: relative;
-       left: 1em;
+       color: rgb(0, 0, 0);
+       font-size: 1.09em;
    }
+
+   a#new-cat, a#user-change {
+    position: relative; 
+    display: inline;
+    left: 35vw;
+    font-size: 1.2em;
+   }
+
+  

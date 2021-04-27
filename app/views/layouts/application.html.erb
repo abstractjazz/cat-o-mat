@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <link rel="stylesheet" href="/main_styles.css">
+  <link rel="stylesheet" href="/main_styles.css"> 
     <title>Cat-O-Mat</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
@@ -16,9 +16,10 @@
   <%= link_to 'login', login_path, class: "in-out" %>&nbsp&nbsp&nbsp;
   <% end %>
   <%= link_to 'logout', logout_path, class: "in-out" %>
+  <% if logged_in? %>
   <%= link_to 'all the cats', cats_path, class: "local-nav" %>&nbsp&nbsp&nbsp;
   <%= link_to  'me and my cats', user_path(current_user), class: "local-nav" %> 
-  
+  <% end %>
   </div>
     <%= yield %>
   </body>
