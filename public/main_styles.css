@@ -2,17 +2,18 @@
 @import url('http://fonts.cdnfonts.com/css/action-man-shaded');
 
 html > body {
-    margin-left: 0;
+    margin: 0 0 0 0;
     background: rgb(255, 169, 184);
 }
 
 div.header-nav {
-    position: fixed;
+    display: block;
+    position: relative;
     top:0px;
     background: linear-gradient(blue, pink);
     width: 100vw;
     height: 4vh;
-    margin-bottom: 10em;
+    overflow: hidden;
     padding: 0.5em 0em 0em 2em;
 }
 

@@ -13,7 +13,7 @@ class TradesController < ApplicationController
             else
         
                 if user.credits < cat.cost
-                need_more_credits 
+               return need_more_credits
                 end
             end 
         end 

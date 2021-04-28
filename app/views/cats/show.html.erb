@@ -1,19 +1,19 @@
-<link rel="stylesheet" href="cat_show_styles.css">
+<link rel="stylesheet" href="/show_cat_styles.css">
 
 <% if flash[:notice] %>
     <div class="notice"><%= flash[:notice] %></div>
   <% end %>
 
- 
+<div class="cat-container">
+<div class="info-box">
 <% if user_has_cat %>
 <%# <% if current_user.cats.include?(@cat) && current_user.id == @cat.creator_id %>
-<h3>You have this cat</h3>
+<h3 style="color:blue">You have this cat</h3>
 <% end %>
 
 
-<h3><%= @cat.name %></h3>
-<h3><%= @cat.cost %></h3>
-<h3><%= @cat.creator_id %></h3>
+<h3>Name: <%= @cat.name %></h3>
+<h3>Cost: <%= @cat.cost %></h3>
 <img id="cat" src= <%= "#{@cat.cat_url}" %> width = "200" height = "200">
 
 <% if !current_user.cats.include?(@cat) %>
@@ -45,5 +45,7 @@
 <% end %>
 <% end %>
 <% end %>  
+</div>
+</div>
 
 

@@ -2,6 +2,7 @@ class MinigamesController < ApplicationController
 
     def new 
     @minigame = Minigame.new
+   
     end 
     
     def create

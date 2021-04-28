@@ -2,7 +2,9 @@
     <div class="notice"><%= flash[:notice] %></div>
   <% end %>
 
-<link rel ="stylesheet" href="/cat_show_styles.css">
+<link rel ="stylesheet" href="/show_user_styles.css">
+
+<h1><%= @user.username %>
 <h2>Credits Remaining: <%= @user.credits %></h2>
 <% if current_user.id != @user.id %>
 <h4><%=@user.username %> has <%= @user.cats.count %> cats!</h4>

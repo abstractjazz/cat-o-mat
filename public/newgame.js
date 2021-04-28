@@ -6,7 +6,6 @@ const elArr = []
 
 
 
-
 document.addEventListener('DOMContentLoaded', function() {   
 
 
@@ -37,10 +36,10 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 const el = document.querySelectorAll('input')
-const button = el[4]
+const button = el[2]
 
 
-let animals = document.getElementsByTagName('img')
+let animals = document.getElementsByTagName('img');
 
 button.addEventListener('click', function(event){
 while (animals.length > 0 ) {
@@ -48,4 +47,3 @@ while (animals.length > 0 ) {
    event.clear();   
  }
 });
-
