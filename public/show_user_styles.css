@@ -36,12 +36,11 @@
 
    a#new-cat, a#user-change {
     position: relative; 
-    display: inline;
-    left: 8vw;
+    display: inline-block;
     font-size: 1.2em;
-    margin-top: 2vh;
-    bottom: 11vh;
-   
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    left: 3vh;
    }
 
   

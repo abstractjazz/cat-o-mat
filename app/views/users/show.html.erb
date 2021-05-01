@@ -21,10 +21,12 @@
 <% end %>
 
 </div>
+
 <% if current_user.id == @user.id %>
+
 <%= link_to 'make a new cat', new_user_cat_path(@user), id: "new-cat" %>&nbsp&nbsp&nbsp;
 <%= link_to 'change or delete my account', edit_user_path(@user), id: "user-change" %>
-
 <% else %>
+
 
 <% end %>
