@@ -21,7 +21,7 @@
   <% if logged_in? %>
   <%= link_to 'all the cats', cats_path, class: "local-nav" %>&nbsp&nbsp&nbsp;
   <%= link_to  'me and my cats', user_path(current_user), class: "local-nav" %>&nbsp&nbsp&nbsp;
-  <%# <a href="/newgame", class="local-nav">get more credits</a> %>
+  
   <% end %>
   </div>
     <%= yield %>

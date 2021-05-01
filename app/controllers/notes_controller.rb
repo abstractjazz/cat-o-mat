@@ -7,16 +7,9 @@ class NotesController < ApplicationController
         redirect_to cat_path(@cat)
     end 
 
-
-    def edit 
-    @cat = Cat.find(params[:id])
-    @note = Note.find(params[:id])
-    redirect_to note_path
-    end 
-
     def show
    
-    @note = Note.find(params[:id])
+         @note = Note.find(params[:id])
    
     end 
 
@@ -29,15 +22,17 @@ class NotesController < ApplicationController
     end 
 
     def destroy
-    
-    note = Note.find(params[:id])
-    note.delete 
-    redirect_to cat_path(note.cat)
+        note = Note.find(params[:id])
+        note.delete 
+        redirect_to cat_path(note.cat)
     end
  
      private 
+
      def note_params
-     params.require(:note).permit(:user_id, :cat_id, :content)
+
+         params.require(:note).permit(:user_id, :cat_id, :content)
+
      end 
 
 
