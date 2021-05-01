@@ -1,3 +1,8 @@
+body {
+    overflow: hidden;
+}
+
+
 div.cat-container {
     display: flex;
     position: relative;

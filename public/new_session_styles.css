@@ -2,6 +2,9 @@
 body {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
 
 
@@ -11,11 +14,11 @@ div.login {
     position: relative;
     justify-content: center;
     align-items: center;
-    margin-top: 25vh;
+    margin-top: 10vh;
     background-image: linear-gradient(to bottom right,blue,pink);
     height: 80vh;
     width: 70vh;
-    left: 30em;
+
 }
 
 div.form-group {
