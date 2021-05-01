@@ -25,7 +25,7 @@ class NotesController < ApplicationController
         @note = Note.find(params[:id])
         @note.update(note_params)
         @note.save!
-        
+        redirect_to cat_path(@cat)
     end 
 
     def destroy

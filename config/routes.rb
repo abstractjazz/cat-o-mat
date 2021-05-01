@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   post '/users/:user_id/cats/:id/delete', to: 'cats#destroy', as: 'delete_cat'
   get  '/users/:user_id/delete', to: 'users#destroy'
   post '/users/:user_id/delete', to: 'users#destroy', as: 'delete_user'
+  patch '/notes/:id', to: 'notes#update'
   post '/notes/:id/delete', to: 'notes#destroy', as: 'delete_note'
   get '/notes/:id/delete', to: 'notes#destroy'
   
