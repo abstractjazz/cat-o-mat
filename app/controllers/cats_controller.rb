@@ -24,27 +24,22 @@ class CatsController < ApplicationController
     end
       
    
-        
-      
     def create
+       
         @user = current_user 
-        @cat = @user.cats.build(cat_params)
+        @cat = Cat.new(cat_params)
         @cat.creator_id = @user.id
         @cat.creator_name = @user.username 
         @cat.users << current_user
        if @cat.save
+       @user.cats << @cat
         redirect_to user_cat_path(@user, @cat)
-        @user.cats << @cat
+        
        else 
         render 'new'
     end
 end 
       
-    # def edit
-    #     redirect_to cat_path(@cat)
-    #     @cat = Cat.find_by(id: params[:id])
-    #     @trade = @cat.trades.build(user_id: current_user.id)
-    # end
       
     def update
         cat = Cat.find_by(id: params[:id])

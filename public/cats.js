@@ -29,6 +29,9 @@ function fetchCats() {
   }
   })
 
+
+  
   document.addEventListener('click', function() {
-    document.getElementById('cat_cat_url').value = document.getElementById('cat').src
-    });
+    const catPic = document.getElementById('cat').src;
+    document.getElementById('cat_cat_url').value = catPic
+  });

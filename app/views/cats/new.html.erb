@@ -10,7 +10,9 @@
       <p>Please fix these errors before moving on<p>
       <ul>
         <% @cat.errors.full_messages.each do |message| %>
+        <% if message != "Users is invalid"%>
         <li><%= message %></li>
+        <% end %>
         <% end %>
       </ul>
     </div>

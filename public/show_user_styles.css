@@ -37,8 +37,11 @@
    a#new-cat, a#user-change {
     position: relative; 
     display: inline;
-    left: 35vw;
+    left: 8vw;
     font-size: 1.2em;
+    margin-top: 2vh;
+    bottom: 11vh;
+   
    }
 
   

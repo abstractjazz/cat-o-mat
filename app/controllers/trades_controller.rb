@@ -2,7 +2,7 @@ class TradesController < ApplicationController
 
     def create
        user = current_user
-       if User.has_no_credits.include?(user) 
+        if User.has_no_credits.include?(user) 
       return need_more_credits
        else
        cat = Cat.find(params[:trade][:cat_id])

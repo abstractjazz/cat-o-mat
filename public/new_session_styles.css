@@ -29,7 +29,7 @@ div.login > a {
     font-size: 1.099em;
     position: relative;
     top: 10em;
-    right: 15em;
+    left: 16em;
 }
 
 input.submit {

@@ -4,6 +4,7 @@
 html > body {
     margin: 0 0 0 0;
     background: rgb(255, 169, 184);
+    
 }
 
 div.header-nav {
@@ -25,6 +26,7 @@ img#cat {
 div.header-nav > a.in-out {
     color: white;
 }
+
 div.header-nav > a.local-nav {
     position: relative;
     left: 70vw;
