@@ -2,9 +2,7 @@
 
 <img id="banner" src="https://media.giphy.com/media/N6p1T5qOz57POUgm88/giphy.gif">
 
-<% if flash[:notice] %>
-    <div class="notice"><%= flash[:notice] %></div>
-  <% end %>
+
 
 <% if @user.errors.any? %>
 <div id="error_explanation"> 
@@ -21,5 +19,8 @@
 <div class="login">
 <%= link_to 'Log in with Facebook!', "/auth/facebook", method: :post, class: "fb-login" %>
 <%= render 'form' %>
+<% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
 </div>
 </div>
