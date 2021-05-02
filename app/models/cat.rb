@@ -7,5 +7,5 @@ class Cat < ApplicationRecord
 
     validates :name, presence: true
     validates :cost, presence: true, numericality: true
-    validates :cat_url, presence: {message: "must include a kitteh image. press the new button for a kitteh pic."}
+    validates :cat_url, presence: { message: "must include a kitteh image. press the new button for a kitteh pic."}
 end

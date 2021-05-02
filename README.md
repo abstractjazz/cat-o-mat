@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is cat-o-mat. An informal market for cat pics. 
 
-Things you may want to cover:
+You can make a new cat or you can collect a cat. But make sure you have enough credits! 
 
-* Ruby version
+You get credits every time another user collects a cat that you have made, so be sure to make plenty of cats! You can also play a minigame, to get more credits. 
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Get in here meow. 
