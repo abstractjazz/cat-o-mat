@@ -20,7 +20,6 @@ class CatsController < ApplicationController
         @user = User.find_by(id: @cat.creator_id)
         @trade = @cat.trades.build(user_id: current_user.id) 
         @note = @cat.notes.build(user_id: current_user.id)
-        # binding.pry
     end
       
    

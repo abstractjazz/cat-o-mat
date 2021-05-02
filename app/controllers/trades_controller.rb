@@ -17,7 +17,6 @@ class TradesController < ApplicationController
                 end
             end 
         end 
-
        trade = Trade.create(trade_params)
        trade.trade_cat
        redirect_to user_path(user)  
