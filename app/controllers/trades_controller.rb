@@ -3,16 +3,17 @@ class TradesController < ApplicationController
     def create
        user = current_user
         if User.has_no_credits.include?(user) 
-      return need_more_credits
+        return need_more_credits
        else
        cat = Cat.find(params[:trade][:cat_id])
         
-            if user.cats.include?(cat) 
+            if user.has_cat(cat) 
             redirect_to user_path(user)
             return flash[:notice]="You already have this kitteh!" 
             else
         
-                if user.credits < cat.cost
+                if trade.legal(user, cat)
+                    
                return need_more_credits
                 end
             end 

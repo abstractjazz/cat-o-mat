@@ -11,4 +11,8 @@ class User < ApplicationRecord
 
     scope :has_no_credits, -> {
         where("credits < 1") }
+
+        def has_cat(cat)
+            self.cats.include?(cat) 
+        end 
 end
