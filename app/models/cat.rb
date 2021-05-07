@@ -4,7 +4,7 @@ class Cat < ApplicationRecord
     has_many :notes 
     has_many :users, through: :notes
     belongs_to :creator, class_name: 'User'
-     
+    
     #aliased, as in cats_commented
     
     validates :name, presence: true
