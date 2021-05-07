@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   post '/notes', to: 'notes#create'
   get '/cats/:id/notes/:note_id/edit', to:'notes#edit', as: 'edit_note'
   get '/newgame', to:'minigames#new'
-  # get '/users/:id/cats/:id', to:'cats#show'
   get '/signup', to: 'users#new', as: 'signup'
   post '/minigames', to: 'minigames#create', as: 'minigames'
   get  '/users/:user_id/cats/:id/delete', to: 'cats#destroy'

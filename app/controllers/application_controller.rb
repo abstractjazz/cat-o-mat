@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
 
     def authenticate_user 
         if !logged_in? 
-            flash[:notice] = "If you wanna meet the kittehs you must sign up or login."   
+            flash[:notice] = "If you wanna meet the kittehs, you must sign up or login."   
             redirect_to '/'
         end 
     end

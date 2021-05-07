@@ -21,10 +21,10 @@ class SessionController < ApplicationController
             @user = User.find_by(username: params[:username])
 
             if @user && @user.authenticate(params[:password])
-            set_user
+                set_user
             else 
-            flash[:notice]= "Can't find that user. Have you signed up?"
-            redirect_to new_user_path
+                flash[:notice]= "Can't find that user. Have you signed up?"
+                redirect_to new_user_path
             end 
         end 
     end 
