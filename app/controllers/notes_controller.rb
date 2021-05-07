@@ -2,9 +2,10 @@ class NotesController < ApplicationController
 
     def create
         @cat = Cat.find(params[:note][:cat_id])
-        @note = @cat.notes.build(note_params)
-        @note.save!
+        @note = @cat.notes.new(note_params)
+        if @note.save!
         redirect_to cat_path(@cat)
+        end 
     end 
 
     def show
