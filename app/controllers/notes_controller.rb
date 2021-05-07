@@ -8,16 +8,13 @@ class NotesController < ApplicationController
     end 
 
     def show
-   
          @note = Note.find(params[:id])
-   
     end 
 
     def update
         @cat = Cat.find(params[:note][:cat_id])
         @note = Note.find(params[:id])
         @note.update(note_params)
-        @note.save!
         redirect_to cat_path(@cat)
     end 
 
@@ -30,9 +27,7 @@ class NotesController < ApplicationController
      private 
 
      def note_params
-
          params.require(:note).permit(:user_id, :cat_id, :content)
-
      end 
 
 

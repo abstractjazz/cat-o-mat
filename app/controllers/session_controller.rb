@@ -13,8 +13,7 @@ class SessionController < ApplicationController
                 u.password = SecureRandom.hex(10)
                 end 
             if @user.persisted? 
-            session[:user_id] = @user.id
-            redirect_to @user 
+            set_user
             else 
                 redirect_to new_user_path
             end 
@@ -22,8 +21,7 @@ class SessionController < ApplicationController
             @user = User.find_by(username: params[:username])
 
             if @user && @user.authenticate(params[:password])
-            session[:user_id] = @user.id
-            redirect_to user_path(@user) 
+            set_user
             else 
             flash[:notice]= "Can't find that user. Have you signed up?"
             redirect_to new_user_path
@@ -31,8 +29,6 @@ class SessionController < ApplicationController
         end 
     end 
 
-       
-   
     def destroy 
         session.delete("user_id")
         redirect_to root_path 
@@ -43,6 +39,12 @@ class SessionController < ApplicationController
     def auth
         request.env['omniauth.auth']
     end 
+
+    def set_user
+        session[:user_id] = @user.id
+        redirect_to @user 
+    end 
+
 
 
 end 
