@@ -1,26 +1,24 @@
 class TradesController < ApplicationController 
 
     def create
-       user = current_user
+    user = current_user
+   
         if User.has_no_credits.include?(user) 
         return need_more_credits
-       else
-       cat = Cat.find(params[:trade][:cat_id])
+        end
+        cat = Cat.find(params[:trade][:cat_id])
+        trade = Trade.new(trade_params)
         
-            if user.has_cat(cat) 
-            redirect_to user_path(user)
-            return flash[:notice]="You already have this kitteh!" 
-            else
-        
-                if trade.legal(user, cat)
-                    
-               return need_more_credits
-                end
-            end 
+        if user.has_cat(cat) 
+        redirect_to user_path(user)
+        return flash[:notice]= "You already have this kitteh!" 
+        elsif trade.not_legal(user, cat)            
+        return need_more_credits
+        else 
+        trade.trade_cat
+        trade.save
+        redirect_to user_path(user)
         end 
-       trade = Trade.create(trade_params)
-       trade.trade_cat
-       redirect_to user_path(user)  
     end 
 
     

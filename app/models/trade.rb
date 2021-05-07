@@ -7,16 +7,17 @@ class Trade < ApplicationRecord
         
         buyer_credits_update = self.user.credits - self.cat.cost 
         self.user.update(credits: buyer_credits_update)
-        @user = User.find(self.cat.creator_id)
+       
+        cat_creator = User.find(self.cat.creator_id)
         
-        if user 
-        seller_credits_update = self.cat.cost + user.credits
-        user.update(credits: seller_credits_update)
+        if cat_creator 
+        seller_credits_update = self.cat.cost + self.user.credits 
+        cat_creator.update(credits: seller_credits_update)
         end 
     end     
 
     def not_legal(user, cat)
-        !!user.credits < cat.cost
+        !!(user.credits < cat.cost)
     end 
 
 
