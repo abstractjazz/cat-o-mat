@@ -3,8 +3,10 @@ class Cat < ApplicationRecord
     has_many :users, through: :trades 
     has_many :notes 
     has_many :users, through: :notes
-
-
+    belongs_to :creator, class_name: 'User'
+     
+    #aliased, as in cats_commented
+    
     validates :name, presence: true
     validates :cost, presence: true, numericality: true
     validates :cat_url, presence: { message: "must include a kitteh image. press the new button for a kitteh pic."}

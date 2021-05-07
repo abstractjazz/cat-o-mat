@@ -33,7 +33,7 @@ class CatsController < ApplicationController
        if @cat.save
        @user.cats << @cat
         redirect_to user_cat_path(@user, @cat)
-        
+
        else 
         render 'new'
     end

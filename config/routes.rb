@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :types
   root 'users#new'
   get '/login' => 'session#new'
   get '/auth/facebook/callback', to: 'session#create'
