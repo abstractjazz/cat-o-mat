@@ -9,13 +9,13 @@
 
 <p>Name: <%= cat.name %> | Cost: <%= cat.cost %></p>
 <img id="cat" src= <%= "#{cat.cat_url}" %> width = "200" height = "200"><br>
-<%= link_to "Add this kitteh to your collection", cat_path(cat) %>
-<% if !cat.creator_name %>
+<%# <%= link_to "Add this kitteh to your collection", cat_path(cat) %> %>
+<%# <% if !cat.creator_name %> %>
 
-<p>Discovered by: <%= link_to "test_user", user_path(cat.creator_id)  %></p>
-<%else %>
-<p>Discovered by: <%= link_to cat.creator_name, user_path(cat.creator_id) %></p>
-<% end %>
+<%# <p>Discovered by: <%= link_to "test_user", user_path(cat.creator_id)  %></p>
+<%# <%else %> %>
+<%# <p>Discovered by: <%= link_to cat.creator_name, user_path(cat.creator_id) %></p> %> %>
+<%# <% end %> %>
 </div>
 
 <% end %>

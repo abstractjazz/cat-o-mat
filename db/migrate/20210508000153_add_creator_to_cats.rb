@@ -1,5 +1,5 @@
 class AddCreatorToCats < ActiveRecord::Migration[6.1]
   def change
-    add_reference :cats, :user, null: false, foreign_key: true
+    add_reference :users, :creator, index: true 
   end
 end
