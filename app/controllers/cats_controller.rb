@@ -11,7 +11,7 @@ class CatsController < ApplicationController
         if current_user != @user 
         redirect_to user_path(current_user)
         else
-        @cat = Cat.new 
+        @cat = @user.cats_created.new 
         end 
     end 
       
