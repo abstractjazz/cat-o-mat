@@ -17,9 +17,10 @@ class CatsController < ApplicationController
       
     def show
         @cat = Cat.find(params[:id])
-        @user = User.find_by(id: @cat.creator_id)
-        @trade = @cat.trades.build(user_id: current_user.id) 
-        # @note = @cat.notes.new(user_id: current_user.id)
+        @user = User.find_by(id: params[:user_id])
+        # @creator = User.find_by(id: @cat.creator_id)
+        @trade = @cat.trades.new(user_id: current_user.id) 
+        @note = @cat.notes.new(user_id: current_user.id)
     end
       
    
