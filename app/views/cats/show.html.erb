@@ -26,7 +26,7 @@
 <% end %>
 
 <h3>Kitteh Comments</h3>
-<%= render 'notes/form' %>
+<%# <%= render 'notes/form' %> %>
 
 <% if user_has_cat %>
 
@@ -34,16 +34,19 @@
 
 <% end %>
 
-<% @cat.notes.each do |note| %>
 
+<%# <% @cat.notes.each do |note| %>
 
-<% if note.user && note.content %>
-<% note.content %>
-<strong><p><%=note.user.username%>: </strong><%=note.content%></p> <% if note.user == current_user %>  
-<%= link_to "edit comment", note_path(note) %>
-<% end %>
-<% end %>
-<% end %>  
+<%# <% if note.user && note.content %>
+<%# <% note.content %> %>
+<%# <strong><p><%=note.user.username%>: 
+<%# </strong><%=note.content%>
+<%# </p> <% if note.user == current_user %> %> %>
+<%# <%= link_to "edit comment", note_path(note) %> %>
+<%# <% end %>
+<%# <% end %> %>
+<%# <% end  %> %> %>
+ 
 </div>
 </div>
 

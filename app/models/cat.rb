@@ -3,7 +3,7 @@ class Cat < ApplicationRecord
     has_many :users, through: :trades 
     has_many :cats_commented, class_name: "Note", foreign_key: "cat_id"
     belongs_to :creator, class_name: "User", foreign_key: "creator_id"
-    # has_many :users, through: :notes 
+    has_many :cats_commented, class_name: "Note"  
     
     
     #aliased, as in cats_commented
