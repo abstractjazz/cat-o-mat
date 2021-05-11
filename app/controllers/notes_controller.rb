@@ -1,16 +1,15 @@
 class NotesController < ApplicationController 
 
     def create
-        @cat = Cat.find(params[:note][:cat_id])
-        @note = @cat.notes.build(note_params)
-        @note.save!
-        redirect_to cat_path(@cat)
+        cat = Cat.find(params[:note][:cat_id])
+        user = User.find(params[:note][:user_id])
+        note = cat.notes.build(note_params)
+        note.save!
+        redirect_to cat_path(cat, user)
     end 
 
     def show
-   
          @note = Note.find(params[:id])
-   
     end 
 
     def update

@@ -12,6 +12,7 @@ class CatsController < ApplicationController
         redirect_to user_path(current_user)
         else
         @cat = @user.cats_created.new
+
         end 
     end 
       
@@ -26,11 +27,8 @@ class CatsController < ApplicationController
     def create
         @user = current_user 
         @cat = Cat.new(cat_params)
-        @cat.creator_id = @user.id 
-        # @cat.creator_name = @user.username 
        if @cat.save
        @user.cats << @cat
-       binding.pry
         redirect_to user_cat_path(@user, @cat)
        else 
         render 'new'
@@ -45,11 +43,10 @@ end
     end
 
     def destroy
-        binding.pry
-        user = User.find_by(id: params[:user_id])
-        cat = Cat.find_by(id: params[:id])
-        user.cats.delete(cat.id)
-        redirect_to user_path(user.id)
+        @user = User.find_by(id: params[:id])
+        @cat = Cat.find_by(id: params[:cat_id])
+        @user.cats.delete(@cat.id)
+        redirect_to user_path(@user.id)
     end 
       
         private
