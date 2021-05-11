@@ -28,7 +28,6 @@ class CatsController < ApplicationController
         @cat = Cat.new(cat_params)
         @cat.creator_id = @user.id 
         # @cat.creator_name = @user.username 
-        @cat.users << current_user
        if @cat.save
        @user.cats << @cat
         redirect_to user_cat_path(@user, @cat)
