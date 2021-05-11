@@ -2,9 +2,10 @@ class NotesController < ApplicationController
 
     def create
         @cat = Cat.find(params[:note][:cat_id])
+        @user = User.find(params[:note][:user_id])
         @note = @cat.notes.new(note_params)
         if @note.save
-        redirect_to cat_path(@cat)
+        redirect_to user_cat_path(@user, @cat)
         end 
     end 
 

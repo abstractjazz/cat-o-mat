@@ -12,7 +12,7 @@ class User < ApplicationRecord
         where("credits < 1") }
 
         def has_cat(cat)
-            self.cats.include?(cat)
+            self.cats.include?(cat) || self.cats_created.include?(cat)
         end 
 end
  
