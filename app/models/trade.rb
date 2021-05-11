@@ -4,7 +4,6 @@ class Trade < ApplicationRecord
 
    
     def trade_cat 
-        
         buyer_credits_update = self.user.credits - self.cat.cost 
         self.user.update(credits: buyer_credits_update)
        

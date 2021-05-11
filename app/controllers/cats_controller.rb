@@ -16,18 +16,17 @@ class CatsController < ApplicationController
     end 
       
     def show
+        @user = current_user
         @cat = Cat.find(params[:id])
-        @user = User.find_by(id: params[:user_id])
         @trade = @cat.trades.new(user_id: current_user.id) 
         @note = @cat.notes.new(user_id: current_user.id)
     end
       
    
     def create
-       
-        @user = current_user 
         @cat = Cat.new(cat_params)
-        @cat.creator_id = @user.id
+        @user = User.find(params[:trade][:user_id])
+        @cat.creator = @user
        if @cat.save
         redirect_to user_cat_path(@user, @cat)
        else 
@@ -35,7 +34,7 @@ class CatsController < ApplicationController
     end
 end 
       
-      
+
     def update
         cat = Cat.find_by(id: params[:id])
         cat.update(cat_params)
@@ -52,7 +51,7 @@ end
         private
         
     def cat_params
-        params.require(:cat).permit(:name, :cost, :id, :cat_url, :creator_id)
+        params.require(:cat).permit(:name, :cost, :id, :cat_url, :user_id)
     end
 end
 

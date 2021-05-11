@@ -15,6 +15,7 @@ class TradesController < ApplicationController
             elsif trade.not_legal(user, cat)            
             return need_more_credits
                 else 
+                    binding.pry
                  trade.trade_cat
                  trade.save
                  redirect_to user_path(user)

@@ -12,7 +12,7 @@
 <%= link_to "Add this kitteh to your collection", cat_path(cat) %>
 <% if cat.creator && cat.creator.username %>
 
-<p>Discovered by: <%= link_to cat.creator.username, user_path(cat.creator_id)%></p>
+<p>Discovered by: <%= link_to cat.creator.username, user_path(cat.user_id)%></p>
  
 <% else %> 
 <% end %> 
