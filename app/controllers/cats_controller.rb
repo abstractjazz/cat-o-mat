@@ -17,6 +17,7 @@ class CatsController < ApplicationController
     end 
       
     def show
+        # binding.pry
         @cat = Cat.find(params[:id])
         @user = User.find_by(id: params[:user_id])
         @trade = @cat.trades.new(user_id: current_user.id) 
@@ -43,10 +44,10 @@ end
     end
 
     def destroy
-        @user = User.find_by(id: params[:id])
-        @cat = Cat.find_by(id: params[:cat_id])
-        @user.cats.delete(@cat.id)
-        redirect_to user_path(@user.id)
+        user = User.find_by(id: params[:id])
+        cat = Cat.find_by(id: params[:cat_id])
+        user.cats.delete(cat.id)
+        redirect_to user_path(user.id)
     end 
       
         private
