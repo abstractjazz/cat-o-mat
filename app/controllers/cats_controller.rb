@@ -17,7 +17,7 @@ class CatsController < ApplicationController
       
     def show
         @cat = Cat.find(params[:id])
-        @user = User.find_by(id: @cat.creator_id)
+        @user = User.find_by(id: params[:user_id])
         @trade = @cat.trades.new(user_id: current_user.id) 
         @note = @cat.notes.new(user_id: current_user.id)
     end
@@ -30,6 +30,7 @@ class CatsController < ApplicationController
         # @cat.creator_name = @user.username 
        if @cat.save
        @user.cats << @cat
+       binding.pry
         redirect_to user_cat_path(@user, @cat)
        else 
         render 'new'
@@ -44,6 +45,7 @@ end
     end
 
     def destroy
+        binding.pry
         user = User.find_by(id: params[:user_id])
         cat = Cat.find_by(id: params[:id])
         user.cats.delete(cat.id)
