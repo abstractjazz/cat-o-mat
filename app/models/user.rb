@@ -4,7 +4,11 @@ class User < ApplicationRecord
     has_many :cats, through: :trades 
     has_many :notes 
     has_many :minigames 
+<<<<<<< HEAD
     has_many :cats_created, class_name: "Cat", foreign_key: "user_id"
+=======
+    has_many :cats_created, class_name: "Cat", foreign_key: "creator_id"
+>>>>>>> rework_associations
     validates :username, presence: true, uniqueness: true
     validates :email, presence: true 
 

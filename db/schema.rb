@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2021_05_08_000153) do
+=======
+ActiveRecord::Schema.define(version: 2021_05_11_202250) do
+>>>>>>> rework_associations
 
   create_table "cats", force: :cascade do |t|
     t.string "name"
@@ -18,6 +22,10 @@ ActiveRecord::Schema.define(version: 2021_05_08_000153) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "cat_url"
+<<<<<<< HEAD
+=======
+    t.integer "creator_id"
+>>>>>>> rework_associations
   end
 
   create_table "minigames", force: :cascade do |t|
