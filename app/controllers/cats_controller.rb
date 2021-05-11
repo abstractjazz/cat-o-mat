@@ -11,29 +11,27 @@ class CatsController < ApplicationController
         if current_user != @user 
         redirect_to user_path(current_user)
         else
-        @cat = Cat.new 
+        @cat = @user.cats_created.new
         end 
     end 
       
     def show
         @cat = Cat.find(params[:id])
         @user = User.find_by(id: @cat.creator_id)
-        @trade = @cat.trades.build(user_id: current_user.id) 
-        @note = @cat.notes.build(user_id: current_user.id)
+        @trade = @cat.trades.new(user_id: current_user.id) 
+        @note = @cat.notes.new(user_id: current_user.id)
     end
       
    
     def create
-       
         @user = current_user 
         @cat = Cat.new(cat_params)
-        @cat.creator_id = @user.id
-        @cat.creator_name = @user.username 
+        @cat.creator_id = @user.id 
+        # @cat.creator_name = @user.username 
         @cat.users << current_user
        if @cat.save
        @user.cats << @cat
         redirect_to user_cat_path(@user, @cat)
-        
        else 
         render 'new'
     end
