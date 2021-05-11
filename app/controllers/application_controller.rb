@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
 
     def user_has_cat
         cat = Cat.find(params[:id])
-        @current_user.cats.include?(@cat) || @current_user.id == @cat.creator_id 
+        @current_user.cats.include?(@cat) || @current_user.id == @cat.user_id 
     end 
 
 

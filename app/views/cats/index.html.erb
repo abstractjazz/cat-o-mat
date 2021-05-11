@@ -10,6 +10,7 @@
 <p>Name: <%= cat.name %> | Cost: <%= cat.cost %></p>
 <img id="cat" src= <%= "#{cat.cat_url}" %> width = "200" height = "200"><br>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <%# <%= link_to "Add this kitteh to your collection", cat_path(cat) %> %>
 <%# <% if !cat.creator_name %> %>
 
@@ -26,6 +27,15 @@
 <p>Discovered by: <%= link_to cat.creator.username, user_path(cat.creator_id) %></p>
 <% end %>
 >>>>>>> rework_associations
+=======
+<%= link_to "Add this kitteh to your collection", cat_path(cat) %>
+<% if cat.creator && cat.creator.username %>
+
+<p>Discovered by: <%= link_to cat.creator.username, user_path(cat.user_id)%></p>
+ 
+<% else %> 
+<% end %> 
+>>>>>>> 5a8d302057026b5d60c0303e6e3befc97133f6a9
 </div>
 
 <% end %>

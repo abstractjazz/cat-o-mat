@@ -3,9 +3,12 @@ class NotesController < ApplicationController
     def create
 <<<<<<< HEAD
         @cat = Cat.find(params[:note][:cat_id])
+        @user = User.find(params[:note][:user_id])
         @note = @cat.notes.new(note_params)
         if @note.save
         redirect_to cat_path(@cat)
+        else 
+            flash[:notice]="Must include a message to submit a note"
         end 
 =======
         cat = Cat.find(params[:note][:cat_id])
@@ -18,6 +21,7 @@ class NotesController < ApplicationController
 
     def show
          @note = Note.find(params[:id])
+         redirect_to cat_path(@cat)
     end 
 
     def update

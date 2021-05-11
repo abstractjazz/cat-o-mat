@@ -11,10 +11,14 @@
 # It's strongly recommended that you check this file into your version control system.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2021_05_08_000153) do
 =======
 ActiveRecord::Schema.define(version: 2021_05_11_202250) do
 >>>>>>> rework_associations
+=======
+ActiveRecord::Schema.define(version: 2021_05_11_005420) do
+>>>>>>> 5a8d302057026b5d60c0303e6e3befc97133f6a9
 
   create_table "cats", force: :cascade do |t|
     t.string "name"
@@ -23,9 +27,13 @@ ActiveRecord::Schema.define(version: 2021_05_11_202250) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "cat_url"
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     t.integer "creator_id"
 >>>>>>> rework_associations
+=======
+    t.integer "user_id"
+>>>>>>> 5a8d302057026b5d60c0303e6e3befc97133f6a9
   end
 
   create_table "minigames", force: :cascade do |t|
@@ -57,8 +65,6 @@ ActiveRecord::Schema.define(version: 2021_05_11_202250) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"
     t.string "uid"
-    t.integer "creator_id"
-    t.index ["creator_id"], name: "index_users_on_creator_id"
   end
 
 end
